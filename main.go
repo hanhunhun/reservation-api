@@ -40,11 +40,12 @@ func getConnect() *Connect {
 			Title:  "しっぱい",
 			Author: "しっぱい",
 		}
+		return c
 	} else {
 		c := &Connect{
 			Title:  "せいこう",
 			Author: "せいこう",
 		}
+		return c
 	}
-	return c
 }
