@@ -35,5 +35,5 @@ func getConnect() *Connect {
 	db, err := gorm.Open("postgres", databaseUrl)
 	log.Print(db)
 	log.Print(err)
-	return db
+	return err
 }
