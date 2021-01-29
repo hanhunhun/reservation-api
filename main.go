@@ -8,11 +8,8 @@ import (
 )
 
 func main() {
-	db, err := connect()
-	log.Print(db)
-}
-
-func connect() {
 	databaseUrl := os.Getenv("DATABASE_URL")
-	return gorm.Open("postgres", databaseUrl)
+	db, err := gorm.Open("postgres", databaseUrl)
+	log.Print(db)
+	log.Print(err)
 }
