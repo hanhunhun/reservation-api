@@ -4,6 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
+	"log"
 	"net/http"
 	"os"
 )
@@ -29,9 +30,10 @@ func connectHandler(c echo.Context) error {
 	return c.JSON(http.StatusOK, getConnect())
 }
 
-func getConnect() *Book {
+func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
 	db, err := gorm.Open("postgres", databaseUrl)
 	log.Print(db)
 	log.Print(err)
+	return db
 }
