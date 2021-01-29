@@ -3,22 +3,16 @@ package main
 import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
-	"net/http"
+	"log"
 	"os"
 )
 
 func main() {
-	result := connect()
-	log.Print(result)
+	db, err := connect()
+	log.Print(db)
 }
 
 func connect() {
 	databaseUrl := os.Getenv("DATABASE_URL")
-	db, err := gorm.Open("postgres", databaseUrl)
-	if err != nil {
-		log.Fatal(err)
-		return false
-	} else {
-		return db
-	}
+	return gorm.Open("postgres", databaseUrl)
 }
