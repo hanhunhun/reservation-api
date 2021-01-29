@@ -9,7 +9,7 @@ import (
 
 func main() {
 	result := connect()
-	log.Info(result)
+	log.Print(result)
 }
 
 func connect() {
