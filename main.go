@@ -19,6 +19,9 @@ func main() {
 	e := echo.New()
 
 	// ルーティング設定
+	e.GET("/", func(c echo.Context) error {
+		return c.string(http.StatusOK, "はろわ")
+	})
 	e.GET("/connects/:id", connectHandler)
 
 	// サーバ起動
@@ -33,8 +36,6 @@ func connectHandler(c echo.Context) error {
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
 	db, err := gorm.Open("postgres", databaseUrl)
-	log.Print(db)
-	log.Print(err)
 	c := &Connect{
 		Title:  "せいこう",
 		Author: "せいこう",
