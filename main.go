@@ -36,22 +36,17 @@ func connectHandler(c echo.Context) error {
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
 	db, err := gorm.Open("postgres", databaseUrl)
-	c := &Connect{
-		Title:  "せいこう",
-		Author: "せいこう",
+	if err != nil {
+		c := &Connect{
+			Title:  "しっぱい",
+			Author: "しっぱい",
+		}
+		return c
+	} else {
+		c := &Connect{
+			Title:  "せいこう",
+			Author: "せいこう",
+		}
+		return c
 	}
-	return c
-	// if err != nil {
-	// 	c := &Connect{
-	// 		Title:  "しっぱい",
-	// 		Author: "しっぱい",
-	// 	}
-	// 	return c
-	// } else {
-	// 	c := &Connect{
-	// 		Title:  "せいこう",
-	// 		Author: "せいこう",
-	// 	}
-	// 	return c
-	// }
 }
