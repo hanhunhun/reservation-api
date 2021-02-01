@@ -4,7 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	// "log"
+	"log"
 	"net/http"
 	"os"
 )
@@ -36,6 +36,8 @@ func connectHandler(c echo.Context) error {
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
 	db, err := gorm.Open("postgres", databaseUrl)
+	log.Print(db)
+	log.Print(err)
 	if err != nil {
 		c := &Connect{
 			Title:  "しっぱい",
