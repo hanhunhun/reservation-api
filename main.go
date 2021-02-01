@@ -35,6 +35,7 @@ func connectHandler(c echo.Context) error {
 
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
+	log.Print(databaseUrl)
 	db, err := gorm.Open("postgres", databaseUrl)
 	log.Print(db)
 	log.Print(err)
