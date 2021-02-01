@@ -36,7 +36,7 @@ func connectHandler(c echo.Context) error {
 
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
-	connection, err := pg.ParseURL(databaseUrl)
+	connection, err := pq.ParseURL(databaseUrl)
 	connection += " sslmode=require"
 	db, err := gorm.Open("postgres", connection)
 	log.Print(db)
