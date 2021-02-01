@@ -35,17 +35,22 @@ func getConnect() *Connect {
 	db, err := gorm.Open("postgres", databaseUrl)
 	log.Print(db)
 	log.Print(err)
-	if err != nil {
-		c := &Connect{
-			Title:  "しっぱい",
-			Author: "しっぱい",
-		}
-		return c
-	} else {
-		c := &Connect{
-			Title:  "せいこう",
-			Author: "せいこう",
-		}
-		return c
+	c := &Connect{
+		Title:  "せいこう",
+		Author: "せいこう",
 	}
+	return c
+	// if err != nil {
+	// 	c := &Connect{
+	// 		Title:  "しっぱい",
+	// 		Author: "しっぱい",
+	// 	}
+	// 	return c
+	// } else {
+	// 	c := &Connect{
+	// 		Title:  "せいこう",
+	// 		Author: "せいこう",
+	// 	}
+	// 	return c
+	// }
 }
