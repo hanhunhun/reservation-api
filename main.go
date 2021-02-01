@@ -4,7 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	_ "github.com/lib/pq"
+	"github.com/lib/pq"
 	"log"
 	"net/http"
 	"os"
