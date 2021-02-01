@@ -1,10 +1,10 @@
 package main
 
 import (
-	"github.com/jinzhu/gorm"
+	"database/sql"
+	_ "github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	"github.com/lib/pq"
 	"log"
 	"net/http"
 	"os"
@@ -36,9 +36,7 @@ func connectHandler(c echo.Context) error {
 
 func getConnect() *Connect {
 	databaseUrl := os.Getenv("DATABASE_URL")
-	connection, err := pq.ParseURL(databaseUrl)
-	connection += " sslmode=require"
-	db, err := gorm.Open("postgres", connection)
+	db, err := sql.Open("postgres", databaseUrl)
 	log.Print(db)
 	log.Print(err)
 	if err != nil {
