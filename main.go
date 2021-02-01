@@ -4,7 +4,7 @@ import (
 	"github.com/jinzhu/gorm"
 	_ "github.com/jinzhu/gorm/dialects/postgres"
 	"github.com/labstack/echo"
-	"log"
+	// "log"
 	"net/http"
 	"os"
 )
@@ -20,7 +20,7 @@ func main() {
 
 	// ルーティング設定
 	e.GET("/", func(c echo.Context) error {
-		return c.string(http.StatusOK, "はろわ")
+		return c.String(http.StatusOK, "はろわ")
 	})
 	e.GET("/connects/:id", connectHandler)
 
